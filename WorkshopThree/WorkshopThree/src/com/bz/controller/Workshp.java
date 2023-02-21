@@ -1,21 +1,21 @@
-package com.bz.services;
+package com.bz.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 import com.bz.interfaces.IWorkshp;
 import com.bz.model.WorshpPojo;
+import com.bz.services.WorkshpImplementations;
 
-public class WorkshpImplementations implements IWorkshp{
-
-	static Scanner name = new Scanner(System.in);
-	static ArrayList<Integer> arrListHouse = new ArrayList<Integer>();
+/*
+ Write a Java program to separate elements divided by 5 and stored into another new array from an integer array and 
+  sort it in ascending order then remove divided by 5 from first array as well
+ */
+public class Workshp {
 	
-
-	public void separateAndRemoveMultipleFive(WorshpPojo arr) {
-		int[] intArray = arr.getArr();
+	static Scanner name = new  Scanner(System.in);
+	
+	void sortFindMultipleFive() {
+		int[] intArray = new int[] {1,20,4,5,10,4,6,95};
 		 int[] multipleFiveArray = new int[intArray.length];
 		 
 		 int j =0;
@@ -36,7 +36,6 @@ public class WorkshpImplementations implements IWorkshp{
 					 intArray[i]= intArray[k];
 					 intArray[k]=reserve;
 				 }
-
 				 }
 			 }		 
 		 //print multiple of five
@@ -56,52 +55,41 @@ public class WorkshpImplementations implements IWorkshp{
 				 }
 				 }System.out.println("]"+'\n');
 	}
-
-	@Override
-	public void sortAndFilter() {
-		arrListHouse.add(12);
-		arrListHouse.add(11);
-		arrListHouse.add(5);
-		arrListHouse.add(13);
-		arrListHouse.add(20);
-		arrListHouse.add(30);
+	
+	
+	WorshpPojo getArray() {
+		WorshpPojo array = new WorshpPojo();
 		
-		System.out.println("Multiples of five ::");
-		arrListHouse.stream().filter(data-> data%5 == 0).forEach(data->System.out.print(data+", "));
-		System.out.println();
-		System.out.println("sorted and filtered array ::");
-		arrListHouse.stream().filter(data-> data%5 != 0).sorted().forEach(data-> System.out.print(data+", "));
+		System.out.println("Enter ArrayLength::");
+		int len = name.nextInt();
+		int[] arr = new int[len];
 		
+		System.out.println("Enter Array element :");
+		for(int i = 0; i < len; i++) {
+			arr[i]=name.nextInt();
+		}
 		
+		array.setArr(arr);
+		
+		return array;
 	}
 
+	public static void main(String[] args) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		Workshp arrObj = new Workshp();
+		
+		IWorkshp iWorkshp = new WorkshpImplementations();
+		
+		arrObj.sortFindMultipleFive();
+		System.out.println("");
+		iWorkshp.separateAndRemoveMultipleFive(arrObj.getArray());
+		System.out.println();
+		iWorkshp.sortAndFilter();
 	
-
+	
+	
+	
+	}
 }
+
+
