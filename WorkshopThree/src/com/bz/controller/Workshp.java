@@ -36,8 +36,6 @@ public class Workshp {
 					 intArray[i]= intArray[k];
 					 intArray[k]=reserve;
 				 }
-//				 if(intArray[i]%5==0) {
-//					 intArray[i]=-1;
 				 }
 			 }		 
 		 //print multiple of five
@@ -59,9 +57,6 @@ public class Workshp {
 	}
 	
 	
-	
-	
-	
 	WorshpPojo getArray() {
 		WorshpPojo array = new WorshpPojo();
 		
@@ -75,6 +70,7 @@ public class Workshp {
 		}
 		
 		array.setArr(arr);
+		
 		return array;
 	}
 
@@ -87,6 +83,8 @@ public class Workshp {
 		arrObj.sortFindMultipleFive();
 		System.out.println("");
 		iWorkshp.separateAndRemoveMultipleFive(arrObj.getArray());
+		System.out.println();
+		iWorkshp.sortAndFilter();
 	
 	
 	

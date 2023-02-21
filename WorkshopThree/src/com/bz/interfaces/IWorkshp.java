@@ -6,5 +6,7 @@ public interface IWorkshp {
 
 	void separateAndRemoveMultipleFive(WorshpPojo arr);
 	
+	void sortAndFilter();
+	
 	
 }
